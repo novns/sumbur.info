@@ -8,4 +8,5 @@ set -e
 
 cd "$(dirname "$0")/../public"
 
+export SUMBUR_CONFIG=sumbur-debug.yaml
 gin  -a 8000  -b sumbur-debug  -t ../sumbur  run
