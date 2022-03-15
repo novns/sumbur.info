@@ -1,0 +1,12 @@
+[Unit]
+Description=Sumbur web app
+After=network-online.target
+
+[Service]
+Environment=SUMBUR_CONFIG=sumbur.yaml
+ExecStart=/srv/web/sumbur.info/sumbur/sumbur
+User=novns
+WorkingDirectory=/srv/web/sumbur.info/sumbur
+
+[Install]
+WantedBy=multi-user.target

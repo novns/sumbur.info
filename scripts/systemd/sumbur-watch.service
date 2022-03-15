@@ -1,0 +1,10 @@
+[Unit]
+Description=Sumbur web app auto restart
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl restart sumbur.service
+
+[Install]
+WantedBy=multi-user.target

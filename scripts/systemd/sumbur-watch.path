@@ -1,0 +1,5 @@
+[Path]
+PathModified=/srv/web/sumbur.info/sumbur/sumbur
+
+[Install]
+WantedBy=multi-user.target
