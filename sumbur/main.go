@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"sumbur/views/blog"
+	"sumbur/views/http_errors"
 
 	"github.com/savsgio/atreugo/v11"
 	"gopkg.in/yaml.v2"
@@ -18,6 +19,10 @@ func main() {
 	config := Config{
 		Server: atreugo.Config{
 			NoDefaultContentType: true,
+
+			MethodNotAllowedView: http_errors.NotFoundView,
+			NotFoundView:         http_errors.NotFoundView,
+			PanicView:            http_errors.PanicView,
 		},
 	}
 
@@ -38,6 +43,10 @@ func main() {
 	// Routes
 
 	server.GET("/", blog.BlogGET)
+
+	server.GET("/panic", func(ctx *atreugo.RequestCtx) error {
+		panic("Тестовая ошибка")
+	})
 
 	// Run
 
