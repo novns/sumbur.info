@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"sumbur/views/blog"
 
 	"github.com/savsgio/atreugo/v11"
 	"gopkg.in/yaml.v2"
@@ -36,9 +37,7 @@ func main() {
 
 	// Routes
 
-	server.GET("/", func(ctx *atreugo.RequestCtx) error {
-		return ctx.HTTPResponse("sumbur.info")
-	})
+	server.GET("/", blog.BlogGET)
 
 	// Run
 

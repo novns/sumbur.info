@@ -1,0 +1,6 @@
+{% func (blog *Blog) Title() %}Сумбур вместо музыки{% endfunc %}
+
+
+{% func (blog *Blog) Body() -%}
+sumbur.info
+{% endfunc %}
