@@ -41,6 +41,8 @@ func main() {
 
 	server := atreugo.New(config.Server)
 
+	static.Debug = config.Server.Debug
+
 	// Routes
 
 	server.GET("/", blog.BlogGET)
