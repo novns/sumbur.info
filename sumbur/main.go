@@ -4,6 +4,7 @@ import (
 	"os"
 	"sumbur/views/blog"
 	"sumbur/views/http_errors"
+	"sumbur/views/static"
 
 	"github.com/savsgio/atreugo/v11"
 	"gopkg.in/yaml.v2"
@@ -47,6 +48,9 @@ func main() {
 	server.GET("/panic", func(ctx *atreugo.RequestCtx) error {
 		panic("Тестовая ошибка")
 	})
+
+	server.Static("/static", "static")
+	server.GET("/static-stamp/{stamp}/{path:*}", static.StaticStampGET)
 
 	// Run
 

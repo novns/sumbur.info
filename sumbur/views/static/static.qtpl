@@ -1,0 +1,7 @@
+{% stripspace %}
+
+{% func Stamp(path string) %}
+/static-stamp/{%dl TimeStamp(path) %}/{%s path %}
+{% endfunc %}
+
+{% endstripspace %}
