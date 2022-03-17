@@ -1,3 +1,5 @@
+/public/static/*.gz
+
 /public/sumbur
 /public/sumbur-debug
 

@@ -10,7 +10,12 @@ CGO_ENABLED=0  go build  -o ../public/sumbur  -v
 strip -s ../public/sumbur
 
 
-cd ..
+cd ../public/static
+
+gzip -fkv --  *.css  *.js
+
+
+cd ../..
 
 rsync \
     --archive \
