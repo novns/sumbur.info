@@ -4,6 +4,10 @@
 package views
 
 import (
+	"sumbur/views/static"
+)
+
+import (
 	qtio422016 "io"
 
 	qt422016 "github.com/valyala/quicktemplate"
@@ -75,6 +79,11 @@ func StreamPage(qw422016 *qt422016.Writer, page HTML) {
 	page.StreamTitle(qw422016)
 	qw422016.N().S(` — sumbur.info</title>
 
+<link rel="stylesheet" href="/static/modern-normalize.min.css">
+<link rel="stylesheet" href="`)
+	qw422016.E().S(static.Stamp("sumbur.css"))
+	qw422016.N().S(`">
+
 </head>
 
 
@@ -83,6 +92,11 @@ func StreamPage(qw422016 *qt422016.Writer, page HTML) {
 `)
 	page.StreamBody(qw422016)
 	qw422016.N().S(`
+
+<script defer src="`)
+	qw422016.E().S(static.Stamp("sumbur.js"))
+	qw422016.N().S(`"></script>
+
 </body>
 
 

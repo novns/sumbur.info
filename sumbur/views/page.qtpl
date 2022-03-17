@@ -1,3 +1,8 @@
+{% import (
+    "sumbur/views/static"
+) %}
+
+
 {% interface HTML {
     Title()
     Body()
@@ -27,12 +32,18 @@ type BasePage struct{}
 
 <title>{%= page.Title() %} — sumbur.info</title>
 
+<link rel="stylesheet" href="/static/modern-normalize.min.css">
+<link rel="stylesheet" href="{%s static.Stamp("sumbur.css") %}">
+
 </head>
 
 
 <body>
 
 {%= page.Body() -%}
+
+
+<script defer src="{%s static.Stamp("sumbur.js") %}"></script>
 
 </body>
 
