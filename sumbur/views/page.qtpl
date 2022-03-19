@@ -40,7 +40,34 @@ type BasePage struct{}
 
 <body>
 
+
+<div id="page">
+
+
+<header class="dark">
+…
+</header>
+
+
+<main>
 {%= page.Body() -%}
+</main>
+
+
+<footer class="dark">
+
+<div>
+© 2019–2022 Николай Новиков
+</div>
+
+<div>
+<a href="mailto:sumbur@sumbur.info">sumbur@sumbur.info</a>
+</div>
+
+</footer>
+
+
+</div>
 
 
 <script defer src="{%s static.Stamp("sumbur.js") %}"></script>

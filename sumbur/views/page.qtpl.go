@@ -89,9 +89,36 @@ func StreamPage(qw422016 *qt422016.Writer, page HTML) {
 
 <body>
 
+
+<div id="page">
+
+
+<header class="dark">
+…
+</header>
+
+
+<main>
 `)
 	page.StreamBody(qw422016)
-	qw422016.N().S(`
+	qw422016.N().S(`</main>
+
+
+<footer class="dark">
+
+<div>
+© 2019–2022 Николай Новиков
+</div>
+
+<div>
+<a href="mailto:sumbur@sumbur.info">sumbur@sumbur.info</a>
+</div>
+
+</footer>
+
+
+</div>
+
 
 <script defer src="`)
 	qw422016.E().S(static.Stamp("sumbur.js"))

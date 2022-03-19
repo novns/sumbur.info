@@ -1,0 +1,47 @@
+/* Layout */
+
+body {
+    background-color: whitesmoke;
+}
+
+#page {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 0px auto;
+
+    background-color: white;
+}
+
+.dark {
+    background-color: darkslateblue;
+    color: white;
+}
+
+.dark :any-link {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    padding: 0px;
+}
+
+main {
+    padding: 10px 15px;
+
+    background-color: white;
+    color: #333;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: auto;
+    padding: 10px 15px;
+
+    font-size: smaller;
+}
