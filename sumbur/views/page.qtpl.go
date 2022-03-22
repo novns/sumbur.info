@@ -63,7 +63,7 @@ func (page *BasePage) Body() string {
 	return qs422016
 }
 
-func StreamPage(qw422016 *qt422016.Writer, page HTML) {
+func StreamPage(qw422016 *qt422016.Writer, module int, page HTML) {
 	qw422016.N().S(`<!DOCTYPE html>
 
 <html lang="ru">
@@ -94,7 +94,31 @@ func StreamPage(qw422016 *qt422016.Writer, page HTML) {
 
 
 <header class="dark">
+
+<div>
+
+<ul id="menu">
+`)
+	for mi, item := range Menu {
+		qw422016.N().S(`<li><a href="/`)
+		qw422016.E().Z(item.link)
+		qw422016.N().S(`"`)
+		if mi == module {
+			qw422016.N().S(` class="active"`)
+		}
+		qw422016.N().S(`>`)
+		qw422016.E().Z(item.label)
+		qw422016.N().S(`</a></li>
+`)
+	}
+	qw422016.N().S(`</ul>
+
+</div>
+
+<div>
 …
+</div>
+
 </header>
 
 
@@ -131,15 +155,15 @@ func StreamPage(qw422016 *qt422016.Writer, page HTML) {
 `)
 }
 
-func WritePage(qq422016 qtio422016.Writer, page HTML) {
+func WritePage(qq422016 qtio422016.Writer, module int, page HTML) {
 	qw422016 := qt422016.AcquireWriter(qq422016)
-	StreamPage(qw422016, page)
+	StreamPage(qw422016, module, page)
 	qt422016.ReleaseWriter(qw422016)
 }
 
-func Page(page HTML) string {
+func Page(module int, page HTML) string {
 	qb422016 := qt422016.AcquireByteBuffer()
-	WritePage(qb422016, page)
+	WritePage(qb422016, module, page)
 	qs422016 := string(qb422016.B)
 	qt422016.ReleaseByteBuffer(qb422016)
 	return qs422016

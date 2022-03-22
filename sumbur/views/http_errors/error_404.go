@@ -14,7 +14,7 @@ type NotFound struct {
 
 func NotFoundView(ctx *atreugo.RequestCtx) error {
 	ctx.SetStatusCode(404)
-	views.WritePage(ctx, &NotFound{path: ctx.Path()})
+	views.WritePage(ctx, -1, &NotFound{path: ctx.Path()})
 
 	return nil
 }

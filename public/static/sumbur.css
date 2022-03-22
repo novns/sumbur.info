@@ -2,6 +2,8 @@
 
 body {
     background-color: whitesmoke;
+
+    font-family: Roboto, sans-serif;
 }
 
 #page {
@@ -16,6 +18,9 @@ body {
 }
 
 .dark {
+    display: flex;
+    justify-content: space-between;
+
     background-color: darkslateblue;
     color: white;
 }
@@ -25,9 +30,37 @@ body {
     color: white;
 }
 
+/* Header */
+
 header {
     padding: 0px;
+
+    font-weight: bolder;
 }
+
+#menu {
+    display: flex;
+
+    margin: 0px;
+    padding: 0px;
+
+    list-style: none;
+}
+
+#menu a {
+    display: block;
+    padding: 10px 20px;
+}
+
+#menu a.active {
+    background-color: mediumslateblue;
+}
+
+#menu a:hover {
+    box-shadow: inset 0px -5px 0px 0px mediumslateblue;
+}
+
+/* Main */
 
 main {
     padding: 10px 15px;
@@ -36,10 +69,9 @@ main {
     color: #333;
 }
 
-footer {
-    display: flex;
-    justify-content: space-between;
+/* Footer */
 
+footer {
     margin-top: auto;
     padding: 10px 15px;
 

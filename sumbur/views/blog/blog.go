@@ -11,6 +11,6 @@ type Blog struct {
 }
 
 func BlogGET(ctx *atreugo.RequestCtx) error {
-	views.WritePage(ctx, &Blog{})
+	views.WritePage(ctx, views.PageBlog, &Blog{})
 	return nil
 }
