@@ -46,19 +46,18 @@ type BasePage struct{}
 
 <header class="dark">
 
-<div>
-
 <ul id="menu">
 {% for mi, item := range Menu -%}
 <li><a href="/{%z item.link %}"{% if mi == module %} class="active"{% endif %}>{%z item.label %}</a></li>
 {% endfor -%}
 </ul>
 
-</div>
-
-<div>
-…
-</div>
+<form id="auth-form" action="/auth" method="post">
+{% if AuthState != AuthOK -%}
+<input type="password" name="password" size="12" placeholder="Пароль">
+{% endif -%}
+<input type="submit" value="(• •)" class="button-auth button-auth-{%z AuthClass[AuthState] %}">
+</form>
 
 </header>
 

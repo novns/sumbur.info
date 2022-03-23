@@ -95,8 +95,6 @@ func StreamPage(qw422016 *qt422016.Writer, module int, page HTML) {
 
 <header class="dark">
 
-<div>
-
 <ul id="menu">
 `)
 	for mi, item := range Menu {
@@ -113,11 +111,16 @@ func StreamPage(qw422016 *qt422016.Writer, module int, page HTML) {
 	}
 	qw422016.N().S(`</ul>
 
-</div>
-
-<div>
-…
-</div>
+<form id="auth-form" action="/auth" method="post">
+`)
+	if AuthState != AuthOK {
+		qw422016.N().S(`<input type="password" name="password" size="12" placeholder="Пароль">
+`)
+	}
+	qw422016.N().S(`<input type="submit" value="(• •)" class="button-auth button-auth-`)
+	qw422016.E().Z(AuthClass[AuthState])
+	qw422016.N().S(`">
+</form>
 
 </header>
 

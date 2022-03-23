@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"sumbur/views/auth"
 	"sumbur/views/blog"
 	"sumbur/views/http_errors"
 	"sumbur/views/static"
@@ -11,6 +12,7 @@ import (
 )
 
 type Config struct {
+	Auth   auth.Config
 	Server atreugo.Config
 }
 
@@ -41,11 +43,19 @@ func main() {
 
 	server := atreugo.New(config.Server)
 
+	auth.Init(&config.Auth)
+	server.UseBefore(auth.Check)
+
 	static.Debug = config.Server.Debug
 
 	// Routes
 
 	server.GET("/", blog.BlogGET)
+
+	server.POST("/auth", auth.AuthPOST)
+
+	server.GET("/restrict", auth.RestrictedGET).
+		UseBefore(auth.Restrict)
 
 	server.GET("/panic", func(ctx *atreugo.RequestCtx) error {
 		panic("Тестовая ошибка")

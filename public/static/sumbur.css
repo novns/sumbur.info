@@ -60,6 +60,22 @@ header {
     box-shadow: inset 0px -5px 0px 0px mediumslateblue;
 }
 
+.button-auth {
+    border: none;
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+}
+
+.button-auth-ok {
+    background-color: mediumslateblue;
+}
+
+.button-auth-fail {
+    background-color: darkred;
+}
+
 /* Main */
 
 main {

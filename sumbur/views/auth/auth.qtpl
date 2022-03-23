@@ -1,0 +1,12 @@
+{% func (data *Forbidden) Title() %}Ошибка 403{% endfunc %}
+
+{% func (data *Forbidden) Body() %}
+<p>Доступ запрещён
+{% endfunc %}
+
+
+{% func (data *Restricted) Title() %}Запретная страница{% endfunc %}
+
+{% func (data *Restricted) Body() %}
+<p>Посторонним вход воспрещён
+{% endfunc %}
